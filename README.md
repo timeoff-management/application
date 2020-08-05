@@ -3,7 +3,7 @@
 
 Web application for managing employee absences.
 
-<a href="https://travis-ci.org/timeoff-management/timeoff-management-application"><img align="right" src="https://travis-ci.org/timeoff-management/timeoff-management-application.svg?branch=master" alt="Build status" /></a>
+![Continuous Integration](https://github.com/timeoff-management/timeoff-management-application/workflows/Continuous%20Integration/badge.svg)
 
 ## Features
 
