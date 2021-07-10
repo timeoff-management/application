@@ -18,7 +18,7 @@
 		return new Date(Date.UTC.apply(Date, arguments));
 	}
 	function UTCToday(){
-		var today = new Date();
+		const today = new Date();
 		return UTCDate(today.getFullYear(), today.getMonth(), today.getDate());
 	}
 	function isUTCEquals(date1, date2) {
@@ -37,16 +37,16 @@
 		return d && !isNaN(d.getTime());
 	}
 
-	var DateArray = (function(){
-		var extras = {
+	const DateArray = (function(){
+		const extras = {
 			get: function(i){
 				return this.slice(i)[0];
 			},
 			contains: function(d){
 				// Array.indexOf is not cross-browser;
 				// $.inArray doesn't work with Dates
-				var val = d && d.valueOf();
-				for (var i=0, l=this.length; i < l; i++)
+				const val = d && d.valueOf();
+				for (let i=0, l=this.length; i < l; i++)
 					if (this[i].valueOf() === val)
 						return i;
 				return -1;
@@ -66,14 +66,14 @@
 				this.length = 0;
 			},
 			copy: function(){
-				var a = new DateArray();
+				const a = new DateArray();
 				a.replace(this);
 				return a;
 			}
 		};
 
 		return function(){
-			var a = [];
+			const a = [];
 			a.push.apply(a, arguments);
 			$.extend(a, extras);
 			return a;
@@ -83,7 +83,7 @@
 
 	// Picker object
 
-	var Datepicker = function(element, options){
+	const Datepicker = function(element, options){
 		$(element).data('datepicker', this);
 		this._process_options(options);
 
@@ -150,11 +150,11 @@
 			// Store raw options for reference
 			this._o = $.extend({}, this._o, opts);
 			// Processed options
-			var o = this.o = $.extend({}, this._o);
+			const o = this.o = $.extend({}, this._o);
 
 			// Check if "de-DE" style date is available, if not language should
 			// fallback to 2 letter code eg "de"
-			var lang = o.language;
+			let lang = o.language;
 			if (!dates[lang]){
 				lang = lang.split('-')[0];
 				if (!dates[lang])
@@ -215,7 +215,7 @@
 			o.weekStart %= 7;
 			o.weekEnd = (o.weekStart + 6) % 7;
 
-			var format = DPGlobal.parseFormat(o.format);
+			const format = DPGlobal.parseFormat(o.format);
 			if (o.startDate !== -Infinity){
 				if (!!o.startDate){
 					if (o.startDate instanceof Date)

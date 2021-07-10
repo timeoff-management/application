@@ -1,16 +1,16 @@
 
-var express      = require('express');
-var path         = require('path');
-var favicon      = require('serve-favicon');
-var logger       = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser   = require('body-parser');
-var moment       = require('moment');
+const express      = require('express');
+const path         = require('path');
+const favicon      = require('serve-favicon');
+const logger       = require('morgan');
+const cookieParser = require('cookie-parser');
+const bodyParser   = require('body-parser');
+const moment       = require('moment');
 
-var app = express();
+const app = express();
 
 // View engine setup
-var handlebars = require('express-handlebars')
+const handlebars = require('express-handlebars')
   .create({
     defaultLayout : 'main',
     extname       : '.hbs',
@@ -37,9 +37,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Setup authentication mechanism
 const passport = require('./lib/passport')();
 
-var session = require('express-session');
+const session = require('express-session');
 // Initialize sequelize with session store
-var SequelizeStore = require('connect-session-sequelize')(session.Store);
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
 app.use(session({
     secret            : 'my dirty secret ;khjsdkjahsdajhasdam,nnsnad,',
     resave            : false,
@@ -59,7 +59,7 @@ app.use(passport.session());
 app.use(function(req,res,next){
 
   // Get today given user's timezone
-  var today;
+  let today;
 
   if ( req.user && req.user.company ) {
     today = req.user.company.get_today();
