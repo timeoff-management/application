@@ -229,9 +229,16 @@
             </div>
 
           </div>
+
           <div class="col-md-3">
-            <input name="use_allowance__{{ this.id }}" id="use_allowance__{{ this.id }}" type="checkbox" {{#if use_allowance}}checked="checked"{{/if}} data-tom-leave-type-order="allowance_{{@index}}">
-            <label for="use_allowance__{{ this.id }}" class="control-label">Use allowance</label>
+            <div>
+              <input name="use_allowance__{{ this.id }}" id="use_allowance__{{ this.id }}" type="checkbox" {{#if use_allowance}}checked="checked"{{/if}} data-tom-leave-type-order="allowance_{{@index}}">
+              <label for="use_allowance__{{ this.id }}" class="control-label">Use allowance</label>
+            </div>
+            <div>
+              <input name="auto_approve__{{ this.id }}" id="auto_approve__{{ this.id }}" type="checkbox" {{#if auto_approve}}checked="checked"{{/if}} data-tom-leave-type-order="approve_{{@index}}">
+              <label for="auto_approve__{{ this.id }}" class="control-label">Auto approve</label>
+            </div>
           </div>
           <div class="col-md-2">
             <input type="number" class="form-control" value="{{limit}}" name="limit__{{ this.id }}" data-tom-leave-type-order="limit_{{@index}}">
