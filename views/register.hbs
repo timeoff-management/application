@@ -13,53 +13,18 @@
   <div class="col-md-9">
     <form class="form-horizontal" action="/register" method="post">
 
+      <h2>Company information</h2>
       <div class="form-group">
         <label for="company_name_inp" class="col-md-2 control-label">Company name</label>
         <div class="col-md-6">
-          <input class="form-control" id="company_name_inp" placeholder="Company name" name="company_name" required>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="name_inp" class="col-md-2 control-label">First Name</label>
-        <div class="col-md-6">
-          <input class="form-control" id="name_inp" placeholder="First name" name="name" required>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="lastname_inp" class="col-md-2 control-label">Last Name</label>
-        <div class="col-md-6">
-          <input class="form-control" id="lastname_inp" placeholder="Last Name" name="lastname" required>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="email_inp" class="col-md-2 control-label">Email Address</label>
-        <div class="col-md-6">
-          <input class="form-control" id="email_inp" type="email" placeholder="Email" name="email" required>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="pass_inp" class="col-md-2 control-label">Password</label>
-        <div class="col-md-6">
-          <input class="form-control" id="pass_inp" type="password" placeholder="Password" name="password" required>
-        </div>
-      </div>
-
-
-      <div class="form-group">
-        <label for="confirm_pass_inp" class="col-md-2 control-label">Confirm Password</label>
-        <div class="col-md-6">
-          <input class="form-control" id="confirm_pass_inp" type="password" placeholder="Password" name="password_confirmed" required>
+          <input class="form-control" id="company_name_inp" placeholder="Company name" name="company_name" title="Name of the company" data-toggle="tooltip" required>
         </div>
       </div>
 
       <div class="form-group">
         <label for="country_inp" class="col-md-2 control-label">Country</label>
         <div class="col-md-6">
-          <select class="form-control" id="country_inp" placeholder="Country name" name="country">
+          <select class="form-control" id="country_inp" placeholder="Country name" name="country" data-toggle="tooltip" title="Country of the company">
             {{#each countries}}
             <option value="{{@key}}" {{#if this.default }} selected="selected" {{/if}}>{{@key}}: {{this.name}}</option>
             {{/each}}
@@ -70,11 +35,48 @@
       <div class="form-group">
         <label for="timezone_inp" class="col-md-2 control-label">Time zone</label>
         <div class="col-md-6">
-          <select class="form-control" id="timezone_inp" placeholder="Time zone" name="timezone">
+          <select class="form-control" id="timezone_inp" placeholder="Time zone" name="timezone" data-toggle="tooltip" title="Timezone of the company">
             {{#each timezones_available}}
             <option value="{{this}}" {{#if_equal this 'Europe/London' }} selected="selected" {{/if_equal}}>{{this}}</option>
             {{/each}}
           </select>
+        </div>
+      </div>
+
+      <h2>Supervisor of the company</h2>
+      <div class="form-group">
+        <label for="name_inp" class="col-md-2 control-label">First Name</label>
+        <div class="col-md-6">
+          <input class="form-control" id="name_inp" placeholder="First name" name="name" title="Supervisor's first name" data-toggle="tooltip" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="lastname_inp" class="col-md-2 control-label">Last Name</label>
+        <div class="col-md-6">
+          <input class="form-control" id="lastname_inp" placeholder="Last Name" name="lastname" title="Supervisor's last name" data-toggle="tooltip" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="email_inp" class="col-md-2 control-label">Email Address</label>
+        <div class="col-md-6">
+          <input class="form-control" id="email_inp" type="email" placeholder="Email" name="email" title="Supervisor's email address" data-toggle="tooltip" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="pass_inp" class="col-md-2 control-label">Password</label>
+        <div class="col-md-6">
+          <input class="form-control" id="pass_inp" type="password" placeholder="Password" name="password" title="Supervisor's password" data-toggle="tooltip" required>
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <label for="confirm_pass_inp" class="col-md-2 control-label">Confirm Password</label>
+        <div class="col-md-6">
+          <input class="form-control" id="confirm_pass_inp" type="password" placeholder="Password" name="password_confirmed" title="Confirm password" data-toggle="tooltip" required>
         </div>
       </div>
 
